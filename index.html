@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unsolved — Open IR Research Questions Not Solved by LLMs | Berlin, March 2027</title>
-<meta name="description" content="A collective research agenda for information retrieval. Send a research direction, become a co-author. A SIGIR Futures activity, collocated with ACM SIGIR CHIIR 2027.">
-<meta property="og:title" content="Unsolved — Open IR Research Questions Not Solved by LLMs">
-<meta property="og:description" content="Send a research direction. Nothing is rejected. Everyone who contributes is a co-author. Berlin, March 2027.">
+<title>Unsolved: Which IR problems are still worth a PhD? | Workshop at CHIIR 2027, Berlin</title>
+<meta name="description" content="A call to PhD students and early-career researchers: which information retrieval problems, still unsolved by LLMs, are worth a PhD? Submit by 6 November 2026 to be considered for a $500 fee waiver for ACM SIGIR CHIIR 2027 in Berlin.">
+<meta property="og:title" content="Unsolved: Which IR problems are still worth a PhD?">
+<meta property="og:description" content="A call to PhD students and early-career researchers, with a workshop at ACM SIGIR CHIIR 2027 in Berlin. Submit a research direction by 6 November to be considered for a $500 fee waiver. Everyone who submits is credited on the paper.">
 <meta property="og:type" content="website">
-<!-- TODO: og:url and og:image -->
+<!-- TODO: og:url and og:image. The image is what people see when the link is shared on LinkedIn, Slack, X, etc. -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,6 +88,8 @@ a:hover{ text-decoration-color:var(--mark); }
 
 /* ---- hero ---- */
 .hero{ padding-block:clamp(2.5rem,7vw,5rem) clamp(2rem,5vw,3.5rem); }
+.hero__context{ font-family:var(--sans); font-weight:600; font-size:.95rem; line-height:1.45; max-width:none; margin:0 0 1.25rem; }
+.hero__context a{ text-decoration-color:var(--mark); text-decoration-thickness:2px; }
 .search{
   max-width:33rem; border:2px solid var(--ink); background:var(--paper);
   padding:clamp(.8rem,2vw,1.05rem) clamp(.9rem,2.2vw,1.2rem);
@@ -105,9 +107,19 @@ a:hover{ text-decoration-color:var(--mark); }
 
 .hero__mark{ font-family:var(--sans); font-weight:700; font-size:clamp(3.5rem,15vw,12rem);
   line-height:.86; letter-spacing:-.055em; margin:clamp(1.75rem,4vw,2.75rem) 0 clamp(1rem,2.5vw,1.6rem); }
-.hero__title{ font-family:var(--serif); font-weight:400; font-size:clamp(1.15rem,1rem + 1.2vw,1.75rem); line-height:1.3; max-width:26ch; margin:0 0 1.4rem; }
-.hero__where{ font-family:var(--sans); font-weight:500; font-size:.98rem; line-height:1.5; color:var(--soft); max-width:42ch; margin:0 0 2rem; }
-.hero__where strong{ color:var(--ink); font-weight:600; }
+.hero__title{ font-family:var(--serif); font-weight:400; font-size:clamp(1.15rem,1rem + 1.2vw,1.75rem); line-height:1.3; max-width:30ch; margin:0 0 1rem; text-wrap:balance; }
+.hero__sub{ font-size:clamp(1rem,.96rem + .3vw,1.15rem); line-height:1.5; color:var(--soft); max-width:50ch; margin:0 0 2rem; }
+
+/* key facts under the hero title */
+.facts{ display:grid; margin:0 0 2rem; max-width:64rem; border-top:2px solid var(--ink); }
+.facts > div{ padding:.85rem 0 .95rem; border-bottom:1px solid var(--rule); }
+.facts dt{ font-family:var(--sans); font-weight:600; font-size:1.02rem; letter-spacing:-.01em; line-height:1.3; margin:0 0 .25rem; }
+.facts dd{ margin:0; font-family:var(--sans); font-size:.9rem; line-height:1.45; color:var(--soft); max-width:44ch; }
+@media (min-width:820px){
+  .facts{ grid-template-columns:repeat(3,minmax(0,1fr)); border-bottom:1px solid var(--rule); }
+  .facts > div{ border-bottom:0; padding-right:1.5rem; }
+  .facts > div + div{ padding-left:1.5rem; border-left:1px solid var(--rule); }
+}
 
 /* ---- buttons ---- */
 .actions{ display:flex; flex-wrap:wrap; gap:.7rem; }
@@ -142,6 +154,15 @@ a:hover{ text-decoration-color:var(--mark); }
 .steps p{ margin:0 0 .35rem; max-width:58ch; font-size:.99rem; }
 .steps p:last-child{ margin-bottom:0; }
 
+/* ---- deadlines ---- */
+.dates{ margin:0 0 2.75rem; max-width:54rem; border-top:2px solid var(--ink); }
+.dates > div{ display:grid; gap:.2rem 1.75rem; padding:1rem 0; border-bottom:1px solid var(--rule); }
+@media (min-width:760px){ .dates > div{ grid-template-columns:12rem minmax(0,1fr); } }
+.dates dt{ font-family:var(--sans); font-weight:600; font-size:1.02rem; letter-spacing:-.01em; line-height:1.3; }
+.dates dt small{ display:block; font-size:.82rem; font-weight:500; letter-spacing:0; color:var(--soft); }
+.dates dd{ margin:0; font-size:.99rem; line-height:1.5; max-width:56ch; }
+.dates .is-key dt{ color:var(--mark); }
+
 /* ---- bullet list ---- */
 .blist{ margin:0 0 1.2rem; padding:0; list-style:none; max-width:56ch; border-top:1px solid var(--rule); }
 .blist li{ padding:.6rem 0 .6rem 1.4rem; border-bottom:1px solid var(--rule); position:relative; font-size:.99rem; line-height:1.45; }
@@ -174,10 +195,10 @@ a:hover{ text-decoration-color:var(--mark); }
     <div class="nav__links">
       <a href="#call">The call</a>
       <a href="#how">How it works</a>
+      <a href="#dates">Deadlines</a>
       <a href="#write">What to write</a>
       <a href="#paper">The paper</a>
       <a href="#berlin">Berlin</a>
-      <a href="#funding">Funding</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
@@ -190,6 +211,8 @@ a:hover{ text-decoration-color:var(--mark); }
 <section id="top" class="hero">
   <div class="wrap">
 
+    <p class="hero__context">A call for research directions, with a workshop at <a href="https://chiir2027.github.io/">ACM SIGIR CHIIR 2027</a> in Berlin, March 2027.</p>
+
     <div class="search" role="img" aria-label="A search box containing the query: has it all been solved? Zero results.">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/>
@@ -199,15 +222,27 @@ a:hover{ text-decoration-color:var(--mark); }
     <p class="search__res" id="qres">0 results.</p>
 
     <h1 class="hero__mark">Unsolved</h1>
-    <p class="hero__title">Defining a new IR playground: open information retrieval research questions not solved by LLMs.</p>
-    <p class="hero__where">
-      <strong>Berlin, March 2027.</strong><br>
-      A SIGIR Futures activity, collocated with ACM SIGIR CHIIR 2027.
-    </p>
+    <p class="hero__title">Which information retrieval problems are still worth a PhD, now that we have LLMs?</p>
+    <p class="hero__sub">Research agendas are usually set by senior researchers. This one is set by PhD students and early-career researchers: the people who will spend the next decade doing the work.</p>
+
+    <dl class="facts">
+      <div>
+        <dt>Submit by 6 November 2026</dt>
+        <dd>First round, until 23:59 AoE. A second round closes 18 December.</dd>
+      </div>
+      <div>
+        <dt>$500 fee waivers</dt>
+        <dd>First-round submissions are considered for a waiver on the CHIIR 2027 registration fee, so you can attend the full conference.</dd>
+      </div>
+      <div>
+        <dt>Your name on the paper</dt>
+        <dd>Everyone who submits is credited as a contributor. Join the workshop or help write the paper to become a co-author.</dd>
+      </div>
+    </dl>
 
     <div class="actions">
-      <a class="btn btn--solid" href="REPLACE-WITH-SUBMISSION-FORM-URL">Submit a research direction</a>
-      <a class="btn btn--ghost" href="REPLACE-WITH-PC-SIGNUP-URL">Join the program committee</a>
+      <a class="btn btn--solid" href="https://docs.google.com/forms/d/e/1FAIpQLSfu0RPDTORpcMSgEpntkUl-IY9gs5CbYiAZxh_j9fCdBZxFiA/viewform?usp=header">Submit a research direction</a>
+      <a class="btn btn--ghost" href="https://chiir2027.github.io/">See CHIIR 2027</a>
       <a class="btn btn--ghost" href="REPLACE-WITH-MAILING-LIST-URL">Get updates</a>
     </div>
 
@@ -221,20 +256,21 @@ a:hover{ text-decoration-color:var(--mark); }
       <p class="eyebrow">THE CALL</p>
       <h2 class="ask">What important IR research problems are still not solved by LLMs?</h2>
 
-      <p class="lede">LLMs have changed what is easy to do in information retrieval. They have not finished the field. We are collecting research directions from the next generation of IR researchers and bringing them together into a research agenda for the field’s future.</p>
+      <p class="lede">LLMs have changed what is easy to do in information retrieval. They have not finished the field. We are collecting research directions from PhD students and early-career researchers, and turning them into a research agenda for IR at a workshop at <a href="https://chiir2027.github.io/">ACM SIGIR CHIIR 2027</a> in Berlin.</p>
 
-      <h3 style="margin-top:2.25rem">We want to hear from the next generation</h3>
-      <p>Much of the research agenda in IR has traditionally been shaped by established researchers. But the researchers who will spend the next five or ten years working on the field’s open problems should have a say in what those problems are.</p>
-      <p>This is an invitation to put those ideas on the table.</p>
+      <h3 style="margin-top:2.25rem">Why the next generation</h3>
+      <p>Research directions in IR are usually drawn up by senior researchers, and PhD positions are written around them. But the people who will spend the next five or ten years on the field’s open problems should have a say in what those problems are. You probably see some that are not on anyone’s list yet.</p>
+      <p>This is an invitation to put them on the table.</p>
+
+      <h3 style="margin-top:2.25rem">Bigger than one paper</h3>
+      <p>We are looking for research directions, not paper ideas. A good direction is a problem that one paper will not settle: it needs a series of studies, and could fill a PhD. If you can imagine a PhD position being advertised around it, it belongs here.</p>
 
       <h3 style="margin-top:2.25rem">Send us a research direction</h3>
-      <p>What is an important IR problem that remains unsolved? What should researchers be working on next?</p>
-      <p>Send us a few hundred words describing your idea. It can be a problem, a question, a gap, or a direction you think the field should pursue.</p>
-      <p>There is no competitive selection process. We want to collect ideas from across the community, bring them together, and develop them into a research agenda.</p>
-      <p><strong>If you contribute a research direction, you become a co-author of the resulting research agenda paper.</strong></p>
+      <p>A few hundred words is enough. There is no competitive selection: every direction is clustered with the others and feeds into the agenda.</p>
+      <p><strong>Everyone who submits is credited as a contributor on the paper.</strong> Join the workshop or help write the paper, and you become a co-author.</p>
 
       <div class="actions actions--spaced">
-        <a class="btn btn--solid" href="REPLACE-WITH-SUBMISSION-FORM-URL">Submit a research direction</a>
+        <a class="btn btn--solid" href="https://docs.google.com/forms/d/e/1FAIpQLSfu0RPDTORpcMSgEpntkUl-IY9gs5CbYiAZxh_j9fCdBZxFiA/viewform?usp=header">Submit a research direction</a>
       </div>
     </div>
 
@@ -242,6 +278,7 @@ a:hover{ text-decoration-color:var(--mark); }
       <h3>The format has been done before, in NLP</h3>
       <p><a href="https://aclanthology.org/2023.findings-emnlp.799/">Defining a New NLP Playground</a> sets out twenty-odd dissertation-worthy research directions.</p>
       <p><a href="https://aclanthology.org/2024.lrec-main.708/">Has It All Been Solved?</a> sets out forty-five open questions that require new research and are not addressed by LLMs.</p>
+      <p>Both were written for researchers at the start of their careers. Unsolved asks the same question of IR, and lets the next generation answer it.</p>
     </div>
   </div>
 </section>
@@ -250,46 +287,81 @@ a:hover{ text-decoration-color:var(--mark); }
 <section id="how" class="band">
   <div class="wrap">
     <p class="eyebrow">HOW IT WORKS</p>
-    <h2>Send an idea, become a co-author</h2>
+    <h2>Send an idea, get your name on the paper</h2>
 
     <ol class="steps">
       <li>
-        <h3>Send an idea</h3>
-        <p>Submit a research direction on an important IR problem that is still open in the age of LLMs. A few hundred words is enough.</p>
-        <p class="todo">[Submission deadline??]</p>
+        <h3>Send a research direction</h3>
+        <p>A few hundred words on an important IR problem that is still open in the age of LLMs, and big enough to build a PhD around.</p>
+        <p class="soft">First round closes 6 November 2026, 23:59 AoE. Second round closes 18 December 2026.</p>
       </li>
       <li>
-        <h3>Become a co-author</h3>
-        <p>Your research direction becomes part of the research agenda, and you become a co-author of the resulting paper. There is no acceptance decision to wait for.</p>
+        <h3>Get credited as a contributor</h3>
+        <p>Everyone who submits is listed as a contributor on the resulting paper. There is no acceptance decision to wait for.</p>
       </li>
       <li>
-        <h3>Develop the agenda</h3>
-        <p>We group the submitted ideas into themes and develop them into a coherent research agenda. The main in-person work happens in Berlin in March 2027, where we cluster and discuss the ideas together.</p>
+        <h3>We build the agenda in Berlin</h3>
+        <p>We group the submitted directions into themes and develop them into a research agenda for IR. The main in-person work happens at the workshop at CHIIR 2027 in Berlin, in March 2027.</p>
         <p class="soft">You do not have to be in Berlin to contribute.</p>
+      </li>
+      <li>
+        <h3>Help write it, become a co-author</h3>
+        <p>Take part in the workshop, or help write and edit the paper, and you become a co-author.</p>
       </li>
     </ol>
 
     <div class="actions actions--spaced">
-      <a class="btn btn--solid" href="REPLACE-WITH-SUBMISSION-FORM-URL">Submit a research direction</a>
+      <a class="btn btn--solid" href="https://docs.google.com/forms/d/e/1FAIpQLSfu0RPDTORpcMSgEpntkUl-IY9gs5CbYiAZxh_j9fCdBZxFiA/viewform?usp=header">Submit a research direction</a>
     </div>
   </div>
 </section>
 
+<!-- ================= DEADLINES & FEE WAIVER ================= -->
+<section id="dates" class="band band--alt">
+  <div class="wrap">
+    <p class="eyebrow">DEADLINES &amp; FEE WAIVER</p>
+    <h2>Submit by 6 November to be considered for a $500 fee waiver</h2>
+
+    <dl class="dates">
+      <div class="is-key">
+        <dt>6 November 2026 <small>23:59 AoE</small></dt>
+        <dd><strong>First round closes.</strong> Submissions in this round are considered for a $500 fee waiver.</dd>
+      </div>
+      <div>
+        <dt>18 December 2026 <small>23:59 AoE</small></dt>
+        <dd><strong>Second round closes.</strong> Just as welcome, and part of the agenda in the same way, but less likely to receive a fee waiver.</dd>
+      </div>
+      <div>
+        <dt>7–11 March 2027</dt>
+        <dd><strong>ACM SIGIR CHIIR 2027 in Berlin</strong>, including the workshop. <span class="todo">[exact workshop day]</span></dd>
+      </div>
+    </dl>
+
+    <h3>About the fee waiver</h3>
+    <p>We want contributors in the room in Berlin. Submit in the first round and you are considered for a $500 waiver on the CHIIR 2027 registration fee, so you can attend the full conference. The submission form asks whether you would like to be considered.</p>
+    <p class="soft">You do not need a waiver, or to attend, to contribute or to be credited on the paper.</p>
+  </div>
+</section>
+
 <!-- ================= WHAT TO WRITE ================= -->
-<section id="write" class="band band--alt">
+<section id="write" class="band">
   <div class="wrap">
     <p class="eyebrow">WHAT TO WRITE</p>
-    <h2>Your research direction</h2>
-    <p class="lede" style="margin-bottom:1.75rem">Tell us about an IR research problem that you think is still worth pursuing. It can be a problem that:</p>
+    <h2>A problem worth a PhD</h2>
+    <p class="lede" style="margin-bottom:1.75rem">Describe an IR research problem that you think deserves years of work. It is a good fit if it:</p>
 
     <ul class="blist">
-      <li>LLMs do not solve</li>
-      <li>LLMs change but do not eliminate</li>
+      <li>is not solved by LLMs, or is changed by LLMs but not eliminated</li>
+      <li>needs a series of papers rather than one, and could fill a PhD</li>
       <li>requires new methods, systems, evaluations, or user research</li>
-      <li>you think deserves substantial future research</li>
     </ul>
 
-    <p>There is no required format. We are interested in the problem itself. You do not need to write a full paper or a position paper.</p>
+    <p>Not sure how to start? Say what the problem is, why it is still open, and why it deserves sustained research.</p>
+    <p>There is no required format. You do not need to write a full paper or a position paper. A few hundred words is enough.</p>
+
+    <div class="actions actions--spaced">
+      <a class="btn btn--solid" href="https://docs.google.com/forms/d/e/1FAIpQLSfu0RPDTORpcMSgEpntkUl-IY9gs5CbYiAZxh_j9fCdBZxFiA/viewform?usp=header">Submit a research direction</a>
+    </div>
   </div>
 </section>
 
@@ -298,14 +370,16 @@ a:hover{ text-decoration-color:var(--mark); }
   <div class="wrap cols cols--aside">
     <div>
       <p class="eyebrow">THE PAPER</p>
-      <h2>A collective research agenda for IR</h2>
-      <p class="lede">The submitted research directions are brought together and developed into a research agenda for information retrieval. Ideas are clustered into themes, discussed, and synthesized during the workshop in Berlin.</p>
-      <p style="margin-top:1.25rem">Contributors are co-authors of the resulting research agenda paper. The aim is a document that identifies the IR research problems worth the next generation's time.</p>
+      <h2>A research agenda for IR, set by the next generation</h2>
+      <p class="lede">All submitted directions are clustered into themes, discussed at the workshop in Berlin, and written up as a research agenda for information retrieval: the problems worth the next generation’s time.</p>
+
+      <h3 style="margin-top:2.25rem">Who is on the paper</h3>
+      <p><strong>Contributors.</strong> Everyone who submits a research direction is listed on the paper.</p>
+      <p><strong>Co-authors.</strong> Everyone who takes part in the workshop in Berlin or helps write and edit the paper.</p>
     </div>
     <div class="aside" style="border-color:var(--paper); color:#C9C6BE">
       <h3 style="color:var(--paper)">Where it goes</h3>
       <p>Full report in SIGIR Forum, December 2027. Perspective papers to the SIGIR 2028 Perspectives track.</p>
-      <p class="todo" style="box-shadow:none">[Is this correct?]</p>
     </div>
   </div>
 </section>
@@ -314,72 +388,73 @@ a:hover{ text-decoration-color:var(--mark); }
 <section id="berlin" class="band">
   <div class="wrap">
     <p class="eyebrow">BERLIN</p>
-    <h2>March 2027</h2>
-    <p>The main activity takes place in Berlin, collocated with ACM SIGIR CHIIR 2027 at Humboldt-Universität zu Berlin. We print the submitted research directions, cluster them, form thematic groups, and work on the agenda together.</p>
-    <p>You do not need to attend CHIIR or the Berlin meeting in order to submit an idea or to be part of the agenda.</p>
-    <p class="todo">[Add the exact date / timeline]</p>
-  </div>
-</section>
-
-<!-- ================= FUNDING ================= -->
-<section id="funding" class="band band--alt">
-  <div class="wrap">
-    <p class="eyebrow">FUNDING</p>
-    <h2>Support to attend</h2>
-    <p>Some funding is available for contributors who want to attend the activity in Berlin. We currently expect to cover approximately $500 in conference costs for selected contributors, subject to available funding.</p>
-    <p>Submitting an idea does not require attending Berlin, and funding is not a condition of contributing or of co-authorship.</p>
-    <p class="todo">[Participants are asked about this in the survey. Need to communicate this section better.]</p>
+    <h2>The workshop at CHIIR 2027</h2>
+    <p>The workshop is a SIGIR Futures activity, co-located with <a href="https://chiir2027.github.io/">ACM SIGIR CHIIR 2027</a> at Humboldt-Universität zu Berlin, 7–11 March 2027. We print the submitted research directions, cluster them, form thematic groups, and work on the agenda together.</p>
+    <p>Taking part in the workshop makes you a co-author. You do not need to attend CHIIR or the workshop to submit an idea or to be credited on the paper.</p>
+    <p class="soft">First-round submissions are considered for a $500 fee waiver to attend. See <a href="#dates">deadlines and fee waiver</a>.</p>
   </div>
 </section>
 
 <!-- ================= FAQ ================= -->
-<section id="faq" class="band">
+<section id="faq" class="band band--alt">
   <div class="wrap">
     <p class="eyebrow">FAQ</p>
     <h2>Questions</h2>
     <div class="faq">
       <details>
-        <summary>Is this a normal workshop submission?</summary>
-        <p>No. We are asking for short research directions, not full workshop papers.</p>
+        <summary>Who can contribute?</summary>
+        <p>Any PhD student or early-career researcher working in information retrieval or information science. If you are not sure whether you count, submit anyway.</p>
       </details>
       <details>
-        <summary>Will ideas be rejected?</summary>
-        <p>The intention is to include all submitted research directions and to use clustering and discussion to organize and develop them.</p>
+        <summary>What do I get for contributing?</summary>
+        <p>Your name on the resulting paper, as a contributor. First-round submissions are also considered for a $500 fee waiver for CHIIR 2027.</p>
+      </details>
+      <details>
+        <summary>What is the difference between a contributor and a co-author?</summary>
+        <p>Everyone who submits a research direction is listed as a contributor. Co-authors are those who take part in the workshop in Berlin or help write and edit the paper.</p>
+      </details>
+      <details>
+        <summary>How do the fee waivers work?</summary>
+        <p>Submit by 6 November 2026, 23:59 AoE, and say in the submission form that you would like to be considered. A waiver is worth $500 on the CHIIR 2027 registration fee, so you can attend the full conference.</p>
+      </details>
+      <details>
+        <summary>I missed the first deadline. Should I still submit?</summary>
+        <p>Yes, please. The second round closes 18 December 2026, 23:59 AoE. Second-round submissions go into the agenda and are credited in the same way, but are less likely to receive a fee waiver.</p>
+      </details>
+      <details>
+        <summary>Do I need to attend Berlin?</summary>
+        <p>No. Everyone who submits is credited as a contributor, whether or not they attend. You can also become a co-author without coming to Berlin, by helping write and edit the paper.</p>
+      </details>
+      <details>
+        <summary>How big should the problem be?</summary>
+        <p>Big enough to build a PhD around: a direction that needs a series of papers, not a single study.</p>
       </details>
       <details>
         <summary>How long should my submission be?</summary>
         <p>A few hundred words is enough.</p>
       </details>
       <details>
-        <summary>What do I get by contributing?</summary>
-        <p>You become a co-author of the resulting research agenda paper.</p>
-      </details>
-      <details>
-        <summary>Do I need to attend Berlin?</summary>
-        <p>No. You can contribute without attending the in-person activity.</p>
-      </details>
-      <details>
         <summary>Does my idea have to be completely new?</summary>
         <p>No. It needs to identify an important research problem that remains open and worth pursuing.</p>
       </details>
       <details>
-        <summary>Who can contribute?</summary>
-        <p class="todo">[Draft: anyone working in IR or information science, at any career stage. The agenda is aimed at the next generation, so PhD students and early-career researchers are particularly wanted, but nobody is excluded.]</p>
+        <summary>Is this a normal workshop submission?</summary>
+        <p>No. We are asking for short research directions, not workshop papers, and nothing is rejected. The intention is to include every submitted direction, and to use clustering and discussion to organize and develop them.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="band band--alt">
+<section id="contact" class="band">
   <div class="wrap">
     <p class="eyebrow">CONTACT</p>
     <h2>Get in touch</h2>
-    <p>Questions about the activity, submissions, or organization:</p>
-    <p><a class="todo" href="REPLACE-WITH-CONTACT-EMAIL-LINK">[make into contacts section]</a></p>
+    <p>Questions about the workshop, submissions, or fee waivers:</p>
+    <p>nadalic.sotic@uva.nl</p>
 
     <div class="actions actions--spaced">
-      <a class="btn btn--solid" href="REPLACE-WITH-SUBMISSION-FORM-URL">Submit a research direction</a>
+      <a class="btn btn--solid" href="https://docs.google.com/forms/d/e/1FAIpQLSfu0RPDTORpcMSgEpntkUl-IY9gs5CbYiAZxh_j9fCdBZxFiA/viewform?usp=header">Submit a research direction</a>
       <a class="btn btn--ghost" href="REPLACE-WITH-PC-SIGNUP-URL">Join the program committee</a>
       <a class="btn btn--ghost" href="REPLACE-WITH-MAILING-LIST-URL">Get updates</a>
     </div>
@@ -390,7 +465,8 @@ a:hover{ text-decoration-color:var(--mark); }
 
 <footer class="foot">
   <div class="wrap">
-    <p>A SIGIR Futures activity, collocated with ACM SIGIR CHIIR 2027, Humboldt-Universität zu Berlin, 7–11 March 2027. Coordinated by Jaap Kamps, University of Amsterdam, with the ACM SIGIR Futures Committee and the CHIIR 2027 organization.</p>
+    <p><strong>Unsolved.</strong> Defining a new IR playground: open information retrieval research questions not solved by LLMs.</p>
+    <p>A SIGIR Futures activity, co-located with <a href="https://chiir2027.github.io/">ACM SIGIR CHIIR 2027</a>, Humboldt-Universität zu Berlin, 7–11 March 2027. Coordinated by Jaap Kamps, University of Amsterdam, with the ACM SIGIR Futures Committee and the CHIIR 2027 organization.</p>
   </div>
 </footer>
 
