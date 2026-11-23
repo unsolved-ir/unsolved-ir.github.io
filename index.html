@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unsolved: Which IR problems are still worth a PhD? | Workshop at CHIIR 2027, Berlin</title>
-<meta name="description" content="A call to PhD students and early-career researchers: which information retrieval problems, still unsolved by LLMs, are worth a PhD? Submit an idea by 8 November 2026 to be considered for a $500 fee waiver for ACM SIGIR CHIIR 2027 in Berlin.">
+<meta name="description" content="A call to PhD students and early-career researchers: which information retrieval problems, still unsolved by LLMs, are worth a PhD? Second round open: submit an idea by 19 December 2026 to be considered for a $500 fee waiver for ACM SIGIR CHIIR 2027 in Berlin.">
 <meta property="og:title" content="Unsolved: Which IR problems are still worth a PhD?">
-<meta property="og:description" content="A call to PhD students and early-career researchers, with a workshop at ACM SIGIR CHIIR 2027 in Berlin. Submit a research direction by 8 November to be considered for a $500 fee waiver. Everyone who submits is credited on the paper.">
+<meta property="og:description" content="A call to PhD students and early-career researchers, with a workshop at ACM SIGIR CHIIR 2027 in Berlin. Second round open: submit a research direction by 19 December to be considered for a $500 fee waiver. Everyone who submits is credited on the paper.">
 <meta property="og:type" content="website">
 <!-- TODO: og:url and og:image. The image is what people see when the link is shared on LinkedIn, Slack, X, etc. -->
 
@@ -162,6 +162,13 @@ a:hover{ text-decoration-color:var(--mark); }
 .dates dt small{ display:block; font-size:.82rem; font-weight:500; letter-spacing:0; color:var(--soft); }
 .dates dd{ margin:0; font-size:.99rem; line-height:1.5; max-width:56ch; }
 .dates .is-key dt{ color:var(--mark); }
+.dates .is-past dt, .dates .is-past dd{ color:var(--soft); }
+.dates .is-past dt{ text-decoration:line-through; text-decoration-thickness:2px; }
+.dates .is-key{ box-shadow:inset 4px 0 0 var(--mark); padding-left:1rem; }
+.past{ color:var(--soft); text-decoration:line-through; }
+.tag{ display:inline-block; font-family:var(--sans); font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  background:var(--mark); color:var(--paper); padding:.15rem .45rem; border-radius:2px; vertical-align:.15em; margin-left:.35rem; text-decoration:none; }
+.tag--closed{ background:transparent; color:var(--soft); box-shadow:inset 0 0 0 1px var(--rule); }
 
 /* ---- bullet list ---- */
 .blist{ margin:0 0 1.2rem; padding:0; list-style:none; max-width:56ch; border-top:1px solid var(--rule); }
@@ -227,12 +234,12 @@ a:hover{ text-decoration-color:var(--mark); }
 
     <dl class="facts">
       <div>
-        <dt>Submit an idea by 8 November 2026</dt>
-        <dd>First round, until 23:59 AoE. A second round closes on 18 December.</dd>
+        <dt>Submit an idea by 19 December 2026 <span class="tag">Open</span></dt>
+        <dd>Second round, until 23:59 AoE. <span class="past">First round: 8 November</span> (closed).</dd>
       </div>
       <div>
         <dt>Full student fee waivers</dt>
-        <dd>First-round submissions are considered for a waiver on the CHIIR 2027 registration fee, so you can attend the full conference.</dd>
+        <dd>Second-round submissions are also considered for a waiver on the CHIIR 2027 registration fee, so you can attend the full conference.</dd>
       </div>
       <div>
         <dt>Your name on the paper</dt>
@@ -292,7 +299,7 @@ a:hover{ text-decoration-color:var(--mark); }
       <li>
         <h3>Send a research direction</h3>
         <p>A few hundred words on an important IR problem that is still open in the age of LLMs, and big enough to build a PhD around.</p>
-        <p class="soft">First round closes 8 November 2026, 23:59 AoE. Second round closes 18 December 2026.</p>
+        <p class="soft"><strong>Second round closes 19 December 2026, 23:59 AoE.</strong> <span class="past">First round closed 8 November 2026.</span></p>
       </li>
       <li>
         <h3>Get credited as a contributor</h3>
@@ -319,16 +326,16 @@ a:hover{ text-decoration-color:var(--mark); }
 <section id="dates" class="band band--alt">
   <div class="wrap">
     <p class="eyebrow">DEADLINES &amp; FEE WAIVER</p>
-    <h2>Submit by 8 November to be considered for a student fee waiver</h2>
+    <h2>Second round open: submit by 19 December to be considered for a student fee waiver</h2>
 
     <dl class="dates">
-      <div class="is-key">
+      <div class="is-past">
         <dt>8 November 2026 <small>23:59 AoE</small></dt>
-        <dd><strong>First round closes.</strong> Submissions in this round are considered for a student full conference fee waiver.</dd>
+        <dd><strong>First round closed.</strong> <span class="tag tag--closed">Closed</span></dd>
       </div>
-      <div>
-        <dt>18 December 2026 <small>23:59 AoE</small></dt>
-        <dd><strong>Second round closes.</strong> Just as welcome and part of the agenda, but less likely to receive a fee waiver.</dd>
+      <div class="is-key">
+        <dt>19 December 2026 <small>23:59 AoE</small></dt>
+        <dd><strong>Second round closes.</strong> <span class="tag">Open now</span> Submissions in this round are considered for a student full conference fee waiver.</dd>
       </div>
       <div>
         <dt>7–11 March 2027</dt>
@@ -337,7 +344,7 @@ a:hover{ text-decoration-color:var(--mark); }
     </dl>
 
     <h3>About the fee waiver</h3>
-    <p>We want contributors in the room in Berlin. Submit in the first round, and you will be considered for a student fee waiver to attend CHIIR 2027 in Berlin (the whole conference). We aim to get as many of you as possible to finalize the IR research agenda. The submission form asks whether you would like to be considered.</p>
+    <p>We want contributors in the room in Berlin. Submit by 19 December, and you will be considered for a student fee waiver to attend CHIIR 2027 in Berlin (the whole conference). We aim to get as many of you as possible to finalize the IR research agenda. The submission form asks whether you would like to be considered.</p>
     <p class="soft">You do not need a waiver or to attend in-person to contribute or to be credited on the paper.</p>
   </div>
 </section>
@@ -390,7 +397,7 @@ a:hover{ text-decoration-color:var(--mark); }
     <h2>The workshop at CHIIR 2027</h2>
     <p>The workshop is a SIGIR Futures activity, co-located with <a href="https://chiir2027.github.io/">ACM SIGIR CHIIR 2027</a> at Humboldt-Universität zu Berlin, 7–11 March 2027. We print the submitted research directions, cluster them, form thematic groups, and work on the agenda together.</p>
     <p>Taking part in the workshop makes you a co-author. You do not need to attend CHIIR or the workshop to submit an idea or to be credited on the paper.</p>
-    <p class="soft">First-round submissions are considered for a student fee waiver to attend. See <a href="#dates">deadlines and fee waiver</a>.</p>
+    <p class="soft">Submissions by 19 December are considered for a student fee waiver to attend. See <a href="#dates">deadlines and fee waiver</a>.</p>
   </div>
 </section>
 
@@ -406,7 +413,7 @@ a:hover{ text-decoration-color:var(--mark); }
       </details>
       <details>
         <summary>What do I get for contributing?</summary>
-        <p>Your name on the resulting paper, as a contributor. First-round submissions are also considered for a $500 fee waiver for CHIIR 2027.</p>
+        <p>Your name on the resulting paper, as a contributor. Submissions by 19 December 2026 are also considered for a $500 fee waiver for CHIIR 2027.</p>
       </details>
       <details>
         <summary>What is the difference between a contributor and a co-author?</summary>
@@ -414,11 +421,11 @@ a:hover{ text-decoration-color:var(--mark); }
       </details>
       <details>
         <summary>How do the fee waivers work?</summary>
-        <p>Submit by 8 November 2026, 23:59 AoE, and say in the submission form that you would like to be considered. A waiver is worth $500 on the CHIIR 2027 registration fee, so you can attend the full conference.</p>
+        <p>Submit by 19 December 2026, 23:59 AoE, and say in the submission form that you would like to be considered. A waiver is worth $500 on the CHIIR 2027 registration fee, so you can attend the full conference.</p>
       </details>
       <details>
         <summary>I missed the first deadline. Should I still submit?</summary>
-        <p>Yes, please. The second round closes 18 December 2026, 23:59 AoE. Second-round submissions go into the agenda and are credited in the same way, but are less likely to receive a fee waiver.</p>
+        <p>Yes, please. The first round closed on 8 November, but the second round is open until 19 December 2026, 23:59 AoE. Second-round submissions go into the agenda, are credited in the same way, and are also considered for a fee waiver.</p>
       </details>
       <details>
         <summary>Do I need to attend Berlin?</summary>
